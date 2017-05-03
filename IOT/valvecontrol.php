@@ -166,7 +166,8 @@ header("Location:index.php");
                
               window.onload=function()
               {
-                websocket=new WebSocket("ws://10.129.139.139:8180");
+                // websocket=new WebSocket("ws://10.129.139.139:8180");
+                websocket=new WebSocket("ws://k-yantra.org:8000");
                 websocket.onopen=function()
                 {
                 console.log('Connection established');
