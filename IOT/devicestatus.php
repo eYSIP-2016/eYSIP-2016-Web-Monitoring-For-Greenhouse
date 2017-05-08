@@ -173,7 +173,8 @@ header("Location:index.php");
              var websocket=null;
              window.onload=function()
               {
-                 websocket=new WebSocket("ws://10.129.139.139:8180");
+                 // websocket=new WebSocket("ws://10.129.139.139:8180");
+                 websocket=new WebSocket("ws://k-yantra.org:80");
                 websocket.onopen=function()
                 {
                 console.log('Connection established');
@@ -319,7 +320,8 @@ header("Location:index.php");
     
           document.getElementById('wserror').innerHTML="No connection to MQTT server,Trying to reconnect";
           
-          websocket = new WebSocket("ws://10.129.139.139:8180");
+          // websocket = new WebSocket("ws://10.129.139.139:8180");
+          websocket=new WebSocket("ws://k-yantra.org:80");
         }
         if (websocket.readyState == 1) 
         {
