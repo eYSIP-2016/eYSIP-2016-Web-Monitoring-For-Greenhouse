@@ -19,7 +19,7 @@ $query1="SELECT * FROM groups WHERE name='$group1'";
 $result=mysqli_query($dbc,$query1);
 $group=mysqli_fetch_array($result);
 $groupId=$group['id'];
-$query2="UPDATE devices SET name='$name',description='$description',groupId='$groupId',latitude='$latitude',longitude='$longitude',elevation='$elevation', status=0 WHERE deviceId='$id' ";
+$query2="UPDATE devices SET name='$name',description='$description',groupId='$groupId',latitude='$latitude',longitude='$longitude',elevation='$elevation', status=0 WHERE deviceId='5c:cf:7f:d1:ae:cc' ";
 $result=mysqli_query($dbc,$query2);
 echo $id;
 ?>
