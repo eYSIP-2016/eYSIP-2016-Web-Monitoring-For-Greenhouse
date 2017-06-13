@@ -5,7 +5,7 @@
 require_once('config.php');
 $dbc=mysqli_connect($dbhost,$dbusername,$dbpassword,$dbname) or die('Error connecting to database');
 
-$id=$_POST['id'];
+$id=trim($_POST['id']);
 $name=$_POST['name'];
 $regionId=$_POST['regionId'];
 
@@ -19,7 +19,7 @@ $query1="SELECT * FROM groups WHERE name='$group1'";
 $result=mysqli_query($dbc,$query1);
 $group=mysqli_fetch_array($result);
 $groupId=$group['id'];
-$query2="UPDATE devices SET name='$name',description='$description',groupId='$groupId',latitude='$latitude',longitude='$longitude',elevation='$elevation' WHERE deviceId='$id' ";
+$query2="UPDATE devices SET name='$name',description='$description',groupId='$groupId',latitude='$latitude',longitude='$longitude',elevation='$elevation', status=0 WHERE deviceId='$id' ";
 $result=mysqli_query($dbc,$query2);
 echo $id;
 ?>
