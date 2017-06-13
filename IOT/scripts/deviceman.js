@@ -122,7 +122,7 @@ if(option==2){
     	$http({
           method  : 'POST',
           url     : 'php/updatedeviceinfo.php',
-          data    :$.param({'id':y.id,'name':y.name,'regionId':y.regionId,'description':y.description,'group1':y.group1,'latitude':y.latitude,'longitude':y.longitude,'elevation':y.elevation}), //forms user object
+          data    :$.param({'id':y.deviceId,'name':y.name,'regionId':y.regionId,'description':y.description,'group1':y.group1,'latitude':y.latitude,'longitude':y.longitude,'elevation':y.elevation}), //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
          })
       angular.forEach($scope.details,function(value,key){
