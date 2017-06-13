@@ -20,9 +20,9 @@ $result=mysqli_query($dbc,$query1);
 $group=mysqli_fetch_array($result);
 $groupId=$group['id'];
 if($longitude==null || $latitude==null)
-  $query2="UPDATE devices SET devices.name='$name',devices.description='$description',devices.groupId='$groupId',devices.elevation='$elevation', devices.status=0 WHERE devices.deviceId='$id'";
+  $query2="UPDATE devices SET devices.name='$name',devices.description='$description',devices.groupId='$groupId',devices.elevation='$elevation', devices.status=0 WHERE devices.id='$id'";
 else
-  $query2="UPDATE devices SET devices.name='$name',devices.description='$description',devices.groupId='$groupId',devices.latitude='$latitude',devices.longitude='$longitude',devices.elevation='$elevation', devices.status=0 WHERE devices.deviceId='$id'";
+  $query2="UPDATE devices SET devices.name='$name',devices.description='$description',devices.groupId='$groupId',devices.latitude='$latitude',devices.longitude='$longitude',devices.elevation='$elevation', devices.status=0 WHERE devices.id='$id'";
 $result=mysqli_query($dbc,$query2);
 //echo $id."group name".$group1." group".$group['id'].$result;
 // echo $query2;
