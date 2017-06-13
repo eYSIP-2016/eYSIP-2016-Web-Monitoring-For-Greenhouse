@@ -119,6 +119,8 @@ $scope.option=option
     modalInstance.result.then(function (y) {
 
 if(option==2){
+	alert(y.deviceId);
+	alert(y.id);
     	$http({
           method  : 'POST',
           url     : 'php/updatedeviceinfo.php',
