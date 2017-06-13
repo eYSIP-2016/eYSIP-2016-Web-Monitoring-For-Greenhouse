@@ -21,5 +21,5 @@ $group=mysqli_fetch_array($result);
 $groupId=$group['id'];
 $query2="UPDATE devices SET name='$name',description='$description',groupId='$groupId',latitude='$latitude',longitude='$longitude',elevation='$elevation' WHERE deviceId='$id' ";
 $result=mysqli_query($dbc,$query2);
-
+echo $id;
 ?>
