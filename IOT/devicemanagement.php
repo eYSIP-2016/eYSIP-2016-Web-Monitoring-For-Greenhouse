@@ -14,6 +14,7 @@
     <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type='text/css' href="styles/deviceman.css" >
  <link href="./bower_components/material-design-icons/iconfont/material-icons.css"
+      rel="stylesheet"><link href="./bower_components/jquery-confirm2/css/jquery-confirm.css"
       rel="stylesheet">
 <link href="./bower_components/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
@@ -47,7 +48,13 @@
 			<div dir-paginate="x in details|orderBy:sortKey:reverse|filter:search|itemsPerPage:9" class=' col-md-4 col-xs-12 card '>
 				<div class="card__front" ng-attr-id='{{"a"+x.id +""+ x.switches}}' >
     				<div ng-class=" {'boxes':x.status==0,'boxes1':x.status==1}">
-				<p class='dev_heading' ><span  > {{x.deviceId}}</span> <span ng-if='x.status==1' class='label label-primary ' style='font-size:14px; position:relative; bottom:5px;'>New Device</span></p>
+					<div class="row">
+					
+					<p class='dev_heading'><span > {{x.deviceId}}</span> <span ng-if='x.status==1' class='label label-primary ' style='font-size:14px; position:relative; bottom:5px;'>New Device</span> <i class="fa fa-times fa-1x" aria-hidden="true" ng-click='confirm(x)'></i></p>
+					
+					
+					
+				</div>
 				<p><span class='details'>Name:-</span> {{x.name}}</p>
 				<p><span class='details'>Type:-</span> {{x.type}}</p>
 				<p><span class='details'>Switch ID:-</span> {{x.switches}}</p>
@@ -55,7 +62,8 @@
 
 				
 				<p style='text-align:center;'><button   class='moreinfo' ng-click='clicked(x.id,x.switches)'> More Info</button>
-				</br><button  class='editinfo' ng-click='open(x,2)' >Edit info</button></p>
+				</br><button  class='editinfo' ng-click='open(x,2)' >Edit info</button>
+							<!-- </br><button  class='deletedev' ng-click='open(x,2)' >Delete Device</button> --></p>
 					</div>
 				</div>
 				<div class="card__back" ng-attr-id='{{"b"+x.id +""+ x.switches}}'>
@@ -141,18 +149,18 @@
             Description:</br>
             <textarea  value='{{device.description}}' ng-model='x.description'></textarea></br>
             Region ID:</br>
-            <input type='text' value='{{device.regionId}}'class='signup_fields' ng-model='x.regionId'></input></br>
+            <input type='text' value='{{device.regionId}}' class='signup_fields' ng-model='x.regionId'></input></br>
             Group (for device):</br>
             <select   ng-model='x.group1'>
             <option>{{device.group1}}</option>
             <option  ng-repeat='y in groups' ng-if='y.name!=device.group1' >{{y.name}}</option>
             </select></br>
             Latitude:</br>
-            <input type='text' value='{{device.latitude}}'class='signup_fields' ng-model='x.latitude'></input></br>
+            <input type='text' value='{{device.latitude}}' class='signup_fields' ng-model='x.latitude'></input></br>
             Longitude:</br>
-            <input type='text' value='{{device.longitude}}'class='signup_fields' ng-model='x.longitude'></input></br>
+            <input type='text' value='{{device.longitude}}' class='signup_fields' ng-model='x.longitude'></input></br>
             Elevation(mtrs):</br>
-            <input type='text' value='{{device.elevation}}'class='signup_fields' ng-model='x.elevation'></input></br>
+            <input type='text' value='{{device.elevation}}' class='signup_fields' ng-model='x.elevation'></input></br>
             
         </div>
         <div class='modal-body' ng-if='option==1'>
@@ -174,15 +182,22 @@
         <p>Add a new group:</p>
         		 <input type='text'  class='signup_fields' ng-model='y.name'></input>
         </div>
+        
         <div class='modal-body' ng-if='option==6'>
-        <p>Add a new device type:</p>
+        		<p>Add a new device type:</p>
         		 <input type='text'  class='signup_fields' ng-model='y.name'></input>
         </div>
+        <!-- <div class='modal-body' ng-if='option==8'>
+        		<p>Do You Want to Remove this Device and its associated valve?</p>
+        		 <input type='text'  class='signup_fields' ng-model='x.deviceId' value='{{x.deviceId}}' disabled></input>
+        </div> -->
         
         <div class="modal-footer">
             <button class="btn btn-primary" type="button" ng-click="ok(device)">Save Changes</button>
             <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
         </div>
+
+
     </script>
 	</div>		
 <div style='position:absolute;bottom:-400px;left:0;width:100%;'ng-include="'footer.php'"></div>	
@@ -222,8 +237,10 @@ header("Location:index.php");
 <!-- Customs Scripts -->
 <script type="text/javascript" src="./bower_components/moment/min/moment.min.js"></script>
 <script type="text/javascript" src="./bower_components/livestampjs-develop/livestamp.js"></script>
+<script type="text/javascript" src="./bower_components/jquery-confirm2/js/jquery-confirm.js"></script>
 
 <script type='text/javascript' src="scripts/deviceman.js" ></script>
 <script type="text/javascript" src="menu/dist/js/jquery.mmenu.all.min.js"></script>
+
 </body>
 </html>

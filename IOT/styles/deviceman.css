@@ -35,10 +35,10 @@ a{
 }
 .moreinfo{
 	background-color: white;
-	color: #e51c23;
+	color: #00FF00;
 	height: 50px;
 	width: 150px;
-	border: 3px solid #e51c23;
+	border: 3px solid #00FF00;
 	font-size: 18px;
 	margin-top: 25px;
 	border-radius: 2px;
@@ -47,8 +47,8 @@ a{
 .moreinfo:hover{
 	outline: none;
 	color: white;
-	background-color:#e51c23;
-	border: 3px solid #e51c23;
+	background-color:#00FF00;
+	border: 3px solid #00FF00;
 	
 
 
@@ -62,13 +62,33 @@ a{
 	font-size: 18px;
 	margin-top: 25px;
 	border-radius: 2px;
-
+	
 }
 .editinfo:hover{
 	outline: none;
 	color: white;
 	background-color:#059ace;
 	border: 3px solid #059ace;
+}
+
+.deletedev{
+	background-color: white;
+	color: #e51c23;
+	height: 50px;
+	width: 150px;
+	border: 3px solid #e51c23;
+	font-size: 18px;
+	margin-top: 25px;
+	border-radius: 2px;
+
+}
+.deletedev:hover{
+	outline: none;
+	color: white;
+	background-color:#e51c23;
+	border: 3px solid #e51c23;
+	
+
 
 }
 .card {
@@ -192,7 +212,7 @@ height:470px;
 			width:250px;
 		}
 		.aligning{
-			padding-left:15px;
+			padding-left:15px;deletedev
 		}
 		.editgroupname{
 			/*width: 50%;*/

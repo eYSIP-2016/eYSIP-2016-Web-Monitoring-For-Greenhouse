@@ -5,8 +5,8 @@
 
 $dbhost = 'localhost';
 $dbusername = 'root';
-$dbpassword = '';
-$dbname = 'iot';
+$dbpassword = 'Bio&nic55';
+$dbname = 'IOT';
 
 ?>
 

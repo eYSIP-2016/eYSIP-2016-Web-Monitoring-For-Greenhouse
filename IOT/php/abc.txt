@@ -1,0 +1,44 @@
+Array
+(
+    [id] => 23
+    [name] => wired valves
+    [regionId] => 
+    [description] => 22
+    [group1] => 4-7
+    [latitude] => 80.0000000000
+    [longitude] => 80.0000000000
+    [elevation] => 80
+)
+Array
+(
+    [id] => 29
+    [name] => 
+    [regionId] => 
+    [description] => 33
+    [group1] => 
+    [latitude] => 
+    [longitude] => 
+    [elevation] => 
+)
+Array
+(
+    [id] => 30
+    [name] => 
+    [regionId] => 
+    [description] => 20
+    [group1] => 
+    [latitude] => 
+    [longitude] => 
+    [elevation] => 
+)
+Array
+(
+    [id] => 30
+    [name] => 
+    [regionId] => 
+    [description] => 22
+    [group1] => 4-7
+    [latitude] => 
+    [longitude] => 
+    [elevation] => 
+)

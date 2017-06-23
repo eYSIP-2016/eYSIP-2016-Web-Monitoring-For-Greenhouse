@@ -18,7 +18,9 @@ $elevation=$_POST['elevation'];
 $query1="SELECT * FROM groups WHERE name='$group1'";
 $result=mysqli_query($dbc,$query1);
 $group=mysqli_fetch_array($result);
+
 $groupId=$group['id'];
+
 $query2="UPDATE devices SET name='$name',description='$description',groupId='$groupId',latitude='$latitude',longitude='$longitude',elevation='$elevation' WHERE id='$id' ";
 $result=mysqli_query($dbc,$query2);
 

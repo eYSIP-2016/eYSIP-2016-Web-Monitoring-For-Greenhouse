@@ -95,6 +95,42 @@ app.controller('devicemancontroller',function($scope,$http,$log,$uibModal){
 	 $scope.items = ['item1', 'item2', 'item3'];
 
   $scope.animationsEnabled = true;
+  $scope.confirm=function(x){
+    //Using jquery-confirm2
+    $.confirm({
+    title: 'Confirm Delete',
+    content: 'Do you want to remove device with its associated devices',
+    type: 'red',
+    buttons: {   
+        ok: {
+            text: "Yes",
+            btnClass: 'btn-danger',
+            keys: ['enter'],
+            action: function(){
+
+
+              $http({
+              method  : 'POST',
+              url     : 'php/deletedevice.php',
+              data    :$.param({'deviceId':x.deviceId}), //forms user object
+              headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).then(function (){
+            
+              $http.get("php/getdeviceinfo.php")
+              .then(function (response){
+                $scope.details = response.data;
+              })
+                
+                });
+                 console.log('the user clicked confirm'+x.deviceId);
+                }
+            },
+                cancel: function(){
+                console.log('the user clicked cancel');
+                  }
+        }
+    });
+  }
 
   $scope.open = function (x,option) {
 $scope.option=option
@@ -105,12 +141,15 @@ $scope.option=option
     windowClass: 'center-modal',      
       resolve: {
       	option:function(){
-      		return option
+        
+      		return option;
       	},
         device: function () {
+         
           return x;
         },
         groups:function(){
+         
         	return $scope.groups;
         }
       }
@@ -192,6 +231,20 @@ if(option==2){
     
   });
     }
+    //removing device
+    /* else if(option==8){
+      $http({
+          method  : 'POST',
+          url     : 'php/deletedevice.php',
+          data    :$.param({'deviceId':y.deviceId}), //forms user object
+          headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+         })
+        $http.get("php/getdeviceinfo.php")
+    .then(function (response) {
+      $scope.details = response.data;
+    
+  });
+    }*/
  else if(option==5){
       $http({
           method  : 'POST',
@@ -234,6 +287,7 @@ if(option==2){
  
  });
 app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, option,device,groups) {
+ 
 $scope.option=option;
   $scope.device = device;
   $scope.groups=groups;
@@ -246,8 +300,11 @@ name:''
   $scope.ok = function () {
 
 if($scope.option!=5 && $scope.option!=6){
+
     $uibModalInstance.close($scope.x);
+   
 }  
+
 else{
   $uibModalInstance.close($scope.y);
 
