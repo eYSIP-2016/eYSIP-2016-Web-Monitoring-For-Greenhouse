@@ -95,8 +95,47 @@ app.controller('devicemancontroller',function($scope,$http,$log,$uibModal){
 	 $scope.items = ['item1', 'item2', 'item3'];
 
   $scope.animationsEnabled = true;
+  $scope.confirm=function(x){
+    //alert(10);
+    //Using jquery-confirm2
+    $.confirm({
+    title: 'Confirm Delete',
+    content: 'Do you want to remove device with its associated devices',
+    type: 'red',
+    buttons: {   
+        ok: {
+            text: "Yes",
+            btnClass: 'btn-danger',
+            keys: ['enter'],
+            action: function(){
+
+              $http({
+              method  : 'POST',
+              url     : 'php/deletedevice.php',
+              data    :$.param({'deviceId':x.deviceId}), //forms user object
+              headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).then(function (){
+            
+              $http.get("php/getdeviceinfo.php")
+              .then(function (response){
+                $scope.details = response.data;
+              })
+                
+                });
+                 console.log('the user clicked confirm'+x.deviceId);
+                }
+            },
+                cancel: function(){
+                console.log('the user clicked cancel');
+                  }
+        }
+    });
+  }
+
+  
 
   $scope.open = function (x,option) {
+    //alert(15);
 $scope.option=option
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,

@@ -16,6 +16,8 @@
  <link href="./bower_components/material-design-icons/iconfont/material-icons.css"
       rel="stylesheet">
 <link href="./bower_components/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="./bower_components/jquery-confirm2/css/jquery-confirm.css"
+      rel="stylesheet">
 
 </head>
 <body  ng-controller='devicemancontroller' style='position:relative;'>
@@ -47,7 +49,15 @@
 			<div dir-paginate="x in details|orderBy:sortKey:reverse|filter:search|itemsPerPage:9" class=' col-md-4 col-xs-12 card '>
 				<div class="card__front" ng-attr-id='{{"a"+x.id +""+ x.switches}}' >
     				<div ng-class=" {'boxes':x.status==0,'boxes1':x.status==1}">
-				<p class='dev_heading' ><span  > {{x.deviceId}}</span> <span ng-if='x.status==1' class='label label-primary ' style='font-size:14px; position:relative; bottom:5px;'>New Device</span></p>
+    			<div class="row">
+				<div class="col-md-6">
+				<p class='dev_heading' ><span  > {{x.deviceId}}</span> <span ng-if='x.status==1' class='label label-primary ' style='font-size:14px; position:relative; bottom:5px;'>New Device</span></p></div>
+				<div class="col-md-1 col-offset-5">
+				<i class="fa fa-times fa-6x" aria-hidden="true" ng-click='confirm(x)'></i></p>
+				</div>
+				</div>
+
+				
 				<p><span class='details'>Name:-</span> {{x.name}}</p>
 				<p><span class='details'>Type:-</span> {{x.type}}</p>
 				<p><span class='details'>Switch ID:-</span> {{x.switches}}</p>
@@ -211,6 +221,7 @@ header("Location:index.php");
 ?>
 
 <!-- jQuery -->
+
 <script src="./bower_components/jquery/dist/jquery.min.js"></script>
 <!-- AngularJs -->
 <script src="./bower_components/angular/angular.min.js"></script>
@@ -225,5 +236,6 @@ header("Location:index.php");
 
 <script type='text/javascript' src="scripts/deviceman.js" ></script>
 <script type="text/javascript" src="menu/dist/js/jquery.mmenu.all.min.js"></script>
+<script type="text/javascript" src="./bower_components/jquery-confirm2/js/jquery-confirm.js"></script>
 </body>
 </html>
