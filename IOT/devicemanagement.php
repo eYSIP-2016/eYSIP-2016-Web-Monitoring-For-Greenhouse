@@ -16,8 +16,8 @@
  <link href="./bower_components/material-design-icons/iconfont/material-icons.css"
       rel="stylesheet">
 <link href="./bower_components/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
-<link href="./bower_components/jquery-confirm2/css/jquery-confirm.css"
-      rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.3/jquery-confirm.min.css">
 
 </head>
 <body  ng-controller='devicemancontroller' style='position:relative;'>
@@ -236,6 +236,6 @@ header("Location:index.php");
 
 <script type='text/javascript' src="scripts/deviceman.js" ></script>
 <script type="text/javascript" src="menu/dist/js/jquery.mmenu.all.min.js"></script>
-<script type="text/javascript" src="./bower_components/jquery-confirm2/js/jquery-confirm.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.3/jquery-confirm.min.js"></script>
 </body>
 </html>
